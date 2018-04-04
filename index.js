@@ -28,7 +28,7 @@ let server = http.createServer(function(require, response) {
         })
       }).then(paths => {
         return Promise.all(paths.map(d => {
-          return writeDir(path.join(filePath, d), d)
+          //return writeDir(path.join(filePath, d), d)
         })).then(links => {
           response.writeHead(200, {
             'Content-Type': mime.getType("a.html")
