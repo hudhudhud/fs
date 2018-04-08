@@ -86,6 +86,30 @@ app.get('/article/:path',function(req,res) {
 })
 
 //图片文件服务器
+//http://expressjs.com/en/starter/static-files.html
+// app.use(express.static('public'))
+// Now, you can load the files that are in the public directory:
+
+// http://localhost:3000/images/kitten.jpg
+// http://localhost:3000/css/style.css
+// http://localhost:3000/js/app.js
+// http://localhost:3000/hello.html
+// Express looks up the files relative to the static directory, so the name of the static directory is not part of the URL.
+// To use multiple static assets directories, call the express.static middleware function multiple times:
+
+// app.use(express.static('public'))
+// app.use(express.static('files'))
+// Express looks up the files in the order in which you set the static directories with the express.static middleware function.
+
+// To create a virtual path prefix (where the path does not actually exist in the file system) for files that are served by the express.static function, specify a mount path for the static directory, as shown below:
+// app.use('/static', express.static('public'))
+// Now, you can load the files that are in the public directory from the /static path prefix.
+
+// http://localhost:3000/static/images/kitten.jpg
+// http://localhost:3000/static/css/style.css
+// http://localhost:3000/static/js/app.js
+// http://localhost:3000/static/hello.html
+
 app.use("/img",express.static("img"))
 
 
