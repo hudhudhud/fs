@@ -113,7 +113,7 @@ app.get('/article/:path',function(req,res) {
 app.use("/img",express.static("img"))
 
 
-var server=app.listen(8989,function(argument) {
-	console.log('listening at 8989')
+var server=app.listen(8080,function(argument) {
+	console.log('listening at 8080')
 })
 
