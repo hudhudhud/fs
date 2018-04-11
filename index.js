@@ -2,9 +2,21 @@ var express=require('express')
 var app=express()
 var request=require('request')
 var cheerio=require('cheerio')
+var http = require('http')  
+var https = require('https')
 
 const fs = require("fs")
 const mime = require("mime") //获取文件content-type
+const credentials = {
+  key: fs.readFileSync('cer/2_www.iamabj.club.key'),
+  cert: fs.readFileSync('cer/1_www.iamabj.club_bundle.crt')
+}
+
+var PORT = 80 
+var SSLPORT = 443
+
+var httpServer = http.createServer(app)
+var httpsServer = https.createServer(credentials, app)
 
 
 var paUrl='http://ifeve.com/'
@@ -113,7 +125,15 @@ app.get('/article/:path',function(req,res) {
 app.use("/img",express.static("img"))
 
 
-var server=app.listen(80,function(argument) {
-	console.log('listening at 80')
-})
+// var server=app.listen(80,function(argument) {
+// 	console.log('listening at 80')
+// })
 
+httpServer.listen(PORT, function() {  
+    console.log('HTTP Server is running on: http://localhost:%s', PORT);  
+});  
+  
+//创建https服务器  
+httpsServer.listen(SSLPORT, function() {  
+    console.log('HTTPS Server is running on: https://localhost:%s', SSLPORT);  
+}); 
