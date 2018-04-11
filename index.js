@@ -8,8 +8,8 @@ var https = require('https')
 const fs = require("fs")
 const mime = require("mime") //获取文件content-type
 const credentials = {
-  key: fs.readFileSync('cer/2_www.iamabj.club.key'),
-  cert: fs.readFileSync('cer/1_www.iamabj.club_bundle.crt')
+  key: fs.readFileSync('cer/2_iamabj.club.key'),
+  cert: fs.readFileSync('cer/1_iamabj.club_bundle.crt')
 }
 
 var PORT = 80 
